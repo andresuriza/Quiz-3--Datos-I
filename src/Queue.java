@@ -1,13 +1,16 @@
 public class Queue {
-    DoublyLinkedList queue = new DoublyLinkedList();
+    private DoublyLinkedList queueList;
 
+    public Queue() {
+        queueList = new DoublyLinkedList();
+    }
     public void enqueue(Object data) {
-        queue.insertFirst(data);
+        this.queueList.insertFirst(data);
     }
 
     public void dequeue(int amount) {
         while (amount != 0) {
-            Node temp = queue.head;
+            Node temp = this.queueList.head;
 
             while (temp.next != null) {
                 temp = temp.next;
@@ -18,16 +21,11 @@ public class Queue {
     }
 
     public Node peak() {
-        Node temp = queue.head;
-
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        return temp;
+        return this.queueList.head;
     }
 
     public void printQueue() {
-        queue.printList();
+        this.queueList.printList();
     }
 
     /*
